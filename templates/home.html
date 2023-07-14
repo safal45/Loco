@@ -11,21 +11,33 @@
          height:360px; 
          width: 100%;
          object-fit:cover;
+         margin-bottom: 16px;
         
      }
 
  </style>
 </head>
 <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src = "https://cdn.wallpapersafari.com/98/5/3F8r1P.jpg">
     <div class="container">
         <h1 class= "text-center mt-2  mb-4">{{ company_name }} Careers </h1>
-        <img class="img-fluid" id="banner" src = "https://cdn.wallpapersafari.com/98/5/3F8r1P.jpg">
         <h2 class= "text-center mt-2  mb-4">About Loco_Mind</h2>
+        <div class="row">
+            <div class= "col-6">
         <p class="lead">DSA or the Data Structure and Algorithms is the backbone of computer programming. It is important for
              every coder to understand the basics of data structures and algorithms to be able to write efficient
               code. However, acquiring this understanding can be a challenge in itself. There are dozens of different 
-              data structures and algorithms, each with its own set of pros and cons.
+              data structures and algorithms, each with its own set of pros and cons.DSA or the Data Structure and Algorithms is the backbone of computer programming. It is important for
+              every coder to understand the basics of data structures and algorithms to be able to write efficient
+               code. However, acquiring this understanding can be a challenge in itself. There are dozens of different 
+               data structures and algorithms, each with its own set of pros and cons.
         </p>
+            </div>
+        <div class="d-none d-md-block col-md-6">
+        <img src = "static/people.jpg" style="height: 320px;">
+    </div>
+        </div>
         <h2 class= "text-center mt-2  mb-4">Job Openings</h2>
         <div>
             {% for job in jobs %}
@@ -43,17 +55,21 @@
                     {% endif %}
                 </div>
             <div class="col-2" style="border-top-width: 0px;border-top-style: solid;margin-top: 20px;margin-left: 40px;">
-                <button type = 'button' class="btn btn-outline-primary">Apply</button>
+                <a href=" mailto:loco_mind@career.ac.in?subject=Application%20for%20{{job['title']}}&body=My%20Name%3A%20%
+                3C%20Input%20Yout%20Name%20%3E%0D%0AMy%20Resume%20link%3A%20%3CResume%20link%3E%0D%0AMy%20LinkedIn%20Profi
+                le%3A%20%3CProfile%20link%3E%0D%0A%0D%0A " type = 'button' class="btn btn-outline-primary">Apply</a>
             </div>
             </div>
             {% endfor %}
     <div class= "text-center"> 
-        <button type="button" class="btn btn-outline-primary">Contact Us</button>
+        <a href=" mailto:loco_mind@career.ac.in?subject=Question%20about%20job%20opening&body=My%20Name%3A%20%3C%20Input%20Yout
+        %20Name%20%3E%0D%0AMy%20Resume%20link%3A%20%3CResume%20link%3E%0D%0AMy%20LinkedIn%20Profile%3A%20%3CProfile%20link%3E%0D
+        %0A%0D%0A " type="button" class="btn btn-outline-primary">Contact Us</a>
 
-        <p class="mt-4"><b>Copyright 2023,Loco_Mind</b></p>
         </div>
     </div>
 </div>
+{% include 'footer.html' %}
 
 </body>
 </html>  
