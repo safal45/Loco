@@ -1,0 +1,11 @@
+<div style="margin-bottom: 16px;">
+<h4 style="color: rgb(128, 134, 89); margin-bottom:4px;">{{job['title']}}
+    <div>
+        <b>Location:</b>{{job['location']}}
+    </div>
+    {% if 'salery' in job %}
+    <div>
+        <b>{{job['salery']}}</b>
+    </div>
+    {% endif %}
+</h4></div>
