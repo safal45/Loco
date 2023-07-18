@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #fafafa;
+    }
+
+    .container {
+      max-width: 400px;
+      background-image: url('/static/ptk.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+      color: #333;
+      transition: border-bottom-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-bottom-color: #3897f0;
+      outline: none;
+    }
+
+    .form-group button {
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #3897f0;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .form-group button:hover {
+      background-color: #3367d6;
+    }
+
+    .social-login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-login .social-btn {
+      margin: 0 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+    }
+
+    .social-login .social-btn.facebook {
+      background-color: #385185;
+    }
+
+    .social-login .social-btn.facebook:hover {
+      background-color: #3b5998;
+    }
+
+    .social-login .social-btn.twitter {
+      background-color: #1da1f2;
+    }
+
+    .social-login .social-btn.twitter:hover {
+      background-color: #1a91da;
+    }
+
+    .social-login .social-btn.instagram {
+      background-color: #833ab4;
+    }
+
+    .social-login .social-btn.instagram:hover {
+      background-color: #6c2c9e;
+    }
+  </style>
+</head>
+<body background="/static/ptk.jpg">
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <div class="form-group">
+        <input type="email" id="signupEmail" name="signupEmail" required placeholder="Email">
+      </div>
+      <div class="form-group">
+        <input type="text" id="signupName" name="signupName" required placeholder="Full Name">
+      </div>
+      <div class="form-group">
+        <input type="text" id="signupUsername" name="signupUsername" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+
+    <div class="social-login">
+      <button class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+      <button class="social-btn twitter"><i class="fab fa-twitter"></i></button>
+      <button class="social-btn instagram"><i class="fab fa-instagram"></i></button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
+

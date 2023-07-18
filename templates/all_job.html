@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JobMastery
+        </title>
+        {% include 'layout.html' %}
+
+</head>
+<body background="/static/ptk.jpg">
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+   
+    <div class="container">
+        <h1 class= "text-center mt-2  mb-4">JobMastery </h1>
+        <div class="row">
+            <div class= "col-6">
+        
+                <p>Welcome to JobMastery, your ultimate resource for career advancement and mastery in the professional world. Our platform is designed to equip you with the tools, knowledge, and opportunities to excel in your chosen field.</p>
+
+                <h5>Unlock Your Full Potential</h5>
+              
+                <p>At JobMastery, we believe that every individual has the potential to achieve greatness in their career. Our mission is to help you unleash your full potential by providing you with the guidance, resources, and support you need to reach new heights of professional success.</p>
+              
+                <h5>Explore a World of Opportunities</h5>
+              
+                <p>Discover a world of exciting career opportunities tailored to your expertise and aspirations. Our extensive database features a wide range of job listings from top companies across industries. Whether you're a seasoned professional looking for new challenges or a recent graduate embarking on your career journey, JobMastery is your gateway to success.</p>
+            </div>
+        <div class="d-none d-md-block col-md-6">
+        <img src = "https://media.istockphoto.com/id/644335608/photo/personal-development-self-improvement-and-career-growth.jpg?s=612x612&w=0&k=20&c=ekEG4v3AgLpkPClToBTZgUZkWuh6uClduyC--U18ABg=" style="height: 340px; width: 650px; margin-top: 9px;">
+    </div>
+        </div>
+        <h2 class= "text-center mt-2  mb-4">Job Openings</h2>
+        <div>
+            {% for job in jobs %}
+                <div class = "border-bottom row" style="margin-bottom: 16px;padding-bottom: 8px;">
+                    <div class="col-9 ">
+                        <h4 style="color: rgb(0, 0, 0); margin-bottom:4px;">{{ job['title'] }}</h4>
+                            <div>
+                                <b>Location:</b>{{ job[ 'location' ]}}
+                        </div>
+                        {% if 'salary' in job %}
+                            <div>
+                                <b>Salary:</b>{{ job['salary'] }}
+                            </div>
+                        {% endif %}
+                    </div>
+                <div class="col-2" style="border-top-width: 0px;border-top-style: solid;margin-top: 20px;margin-left: 40px;">
+                    <a href=" /job/{{job['id']}} " type = 'button' class="btn btn-success">Apply</a>
+                </div>
+                </div>
+
+            {% endfor %}
+    <div class= "text-center"> 
+        <a href=" mailto:loco_mind@career.ac.in?subject=Question%20about%20job%20opening&body=My%20Name%3A%20%3C%20Input%20Yout
+        %20Name%20%3E%0D%0AMy%20Resume%20link%3A%20%3CResume%20link%3E%0D%0AMy%20LinkedIn%20Profile%3A%20%3CProfile%20link%3E%0D
+        %0A%0D%0A " type="button" class="btn btn-danger">Contact Us</a>
+
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+
+</body>
+</html>  

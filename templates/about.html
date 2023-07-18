@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobMastery - About Us</title>
+    {% include 'layout.html' %}
+    <link rel="stylesheet" href="/static/css/about_us.css">
+</head>
+<body background="/static/ptk.jpg">
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+   
+    <div class="container mt-4">
+        <div class="jumbotron text-center mb-4">
+            <h1 class="display-4">About Us</h1>
+            <p class="lead">Unlock Your Career Potential with JobMastery</p>
+        </div>
+
+       
+            <div class="col-md-6 mb-5">
+                <div class="about-section text text-center" style="margin-left: -1px;
+                margin-right: -471px;
+                margin-top: 38px;">
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="text-muted">We are on a mission to empower individuals in their career journey by providing the necessary resources, guidance, and opportunities to excel in their chosen fields.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-5">
+                <div class="about-section text-center" style="margin-left: -1px;
+                margin-right: -471px;
+                margin-top: 38px;">
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="text-muted">Our vision is to create a world where everyone can achieve their career aspirations and unlock their full potential, irrespective of their background or circumstances.</p>
+                </div>
+            </div>
+       
+
+        
+            <div class="col-md-6 mb-5">
+                <div class="about-section text-center" style="margin-left: -1px;
+                margin-right: -471px;
+                margin-top: 38px;">
+                    <h3 class="card-title">Meet the Team</h3>
+                    <p class="text-muted">Our team is made up of passionate individuals from diverse backgrounds, including career counselors, industry experts, and tech enthusiasts, all dedicated to helping you succeed.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-5">
+                <div class="about-section text-center" style="margin-left: -1px;
+                margin-right: -471px;
+                margin-top: 38px;">
+                    <h3 class="card-title">Our Values</h3>
+                    <ul style="list-style:none" class="text-muted">
+                        <li><strong>Empowerment:</strong> We believe in empowering individuals to take control of their career paths.</li>
+                        <li><strong>Inclusivity:</strong> We foster an inclusive community that welcomes everyone with open arms.</li>
+                        <li><strong>Innovation:</strong> We embrace innovation to create the best user experience and services.</li>
+                        <li><strong>Excellence:</strong> We strive for excellence in everything we do to deliver the highest quality service.</li>
+                        <li><strong>Integrity:</strong> We uphold the highest standards of integrity and ethics.</li>
+                    </ul>
+                </div>
+            </div>
+       
+    </div>
+
+    <script>
+        // JavaScript for Meet the Team section
+        const teamCards = document.querySelectorAll(".about-section");
+
+        teamCards.forEach((section) => {
+            section.addEventListener("mouseenter", () => {
+                section.classList.add("section-hover");
+            });
+
+            section.addEventListener("mouseleave", () => {
+                section.classList.remove("section-hover");
+            });
+        });
+    </script>
+
+    <style>
+        /* Custom CSS for About Us page */
+        .container {
+            max-width: 1000px;
+        }
+
+        .jumbotron {
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1.display-4 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        h3.text-primary {
+            color: #9e3333;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .text-muted {
+            color: #777;
+        }
+
+        ul.text-muted {
+            list-style-type: disc;
+        }
+
+        ul.text-muted li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hover effect for About Us sections */
+        .about-section {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .section-hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    
+    {% include 'footer.html' %}
+</body>
+</html>

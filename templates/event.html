@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobMastery - Events</title>
+    {% include 'layout.html' %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("/static/ptk.jpg");
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        .text-muted {
+            color: #999;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+   
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/851936796/vector/color-background-with-executive-people-running-to-cup-trophy.jpg?s=612x612&w=0&k=20&c=s3Y50c4N1gWgqLPLLERZbx_1kX1s7z6Uri3dHEa5VFU=" class="card-img-top" alt="Event 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Career Expo 2023</h5>
+                        <p class="card-text">Join us for the Career Expo 2023, where you'll have the opportunity to meet recruiters from top companies across various industries. Discover new job openings and network with professionals to explore exciting career paths.</p>
+                        <p class="card-text text-muted">Date: November 15, 2023 | Location: Convention Center</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/1327804211/vector/group-of-business-people-with-thumbs-up-social-media-good-opinion-testimonials-feedback.jpg?s=612x612&w=0&k=20&c=p_n_Azy2pSdVlnxd0DcC7LTd5VIrHllgMY2jq-HUf0Q=" class="card-img-top" alt="Event 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Tech Talk Series</h5>
+                        <p class="card-text">Join us for our Tech Talk Series, where industry experts will share insights into the latest technology trends. Expand your knowledge and gain a competitive edge in the rapidly evolving tech industry.</p>
+                        <p class="card-text text-muted">Date: December 5, 2023 | Location: Online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/1309008707/vector/employee-recognition-or-proud-worker-of-the-month-business-concept.jpg?s=612x612&w=0&k=20&c=KECufglN9lhz0RJ3yeR4RS71dx5T3RJkUk7hsdR4Kwg=" class="card-img-top" alt="Event 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Leadership Workshop</h5>
+                        <p class="card-text">Attend our Leadership Workshop to enhance your leadership skills and learn effective strategies for managing teams. Develop the qualities needed to become a successful leader in any industry.</p>
+                        <p class="card-text text-muted">Date: January 10, 2024 | Location: City Auditorium</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more event cards here if needed -->
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+</html>
