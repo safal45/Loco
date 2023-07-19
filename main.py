@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, flash
 from database import load_job_from_db, load_jobs_from_db, add_application_to_db, add_information_to_db, get_iapplication_by_email
 from flask_wtf.csrf import CSRFProtect
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 csrf = CSRFProtect(app)
