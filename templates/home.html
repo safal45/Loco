@@ -46,10 +46,11 @@
                     </div>
                 {% endif %}
             {% endfor %}
-            <form action="/view_all">
-                <button type="submit" class="btn btn-outline-light" style=" margin-left: 1000px;">View All</button>
-            </form>
-
+            <form action="/view_all" method="post">
+                <!-- Include the CSRF token here -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="btn btn-outline-light" style="margin-left: 1000px;">View All</button>
+              </form>
               <div class= "text-center"> 
         <a href=" mailto:loco_mind@career.ac.in?subject=Question%20about%20job%20opening&body=My%20Name%3A%20%3C%20Input%20Yout
         %20Name%20%3E%0D%0AMy%20Resume%20link%3A%20%3CResume%20link%3E%0D%0AMy%20LinkedIn%20Profile%3A%20%3CProfile%20link%3E%0D
