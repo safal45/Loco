@@ -12,12 +12,12 @@ def hello_Loco():
     jobs = load_jobs_from_db()
     return render_template('home.html', jobs=jobs)
 
-@app.route("/view_all", methods=['POST'])
+@app.route("/view_all")
 def view_all():
     jobs = load_jobs_from_db()
     return render_template('all_job.html', jobs=jobs)
 
-@app.route("/events", methods=['POST'])
+@app.route("/events")
 def events():
     return render_template('event.html')
 
@@ -35,7 +35,7 @@ def login():
         if validate_login(email, password):
             # Successful login
             flash("You have successfully logged in!", "success")
-            return redirect('/')
+            return redirect('/user_home')
         else:
             # Incorrect login credentials
             flash("Invalid email or password. Please try again.", "error")
@@ -58,13 +58,18 @@ def signup():
         }
         add_information_to_db(data)
         flash("You have successfully signed up!", "success")
-        return redirect('/')  # Redirect to login page after signing up
+        return redirect('/user_home')  # Redirect to login page after signing up
 
     return render_template('signup.html')
 
 @app.route("/about")
 def about():
     return render_template('about.html')
+
+
+@app.route("/user_home")
+def user_home():
+    return render_template('user_home.html')
 
 @app.route("/job/<id>")
 def show_job(id):

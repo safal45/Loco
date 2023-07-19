@@ -5,7 +5,7 @@
     {% include 'layout.html' %}
 </head>
 <body background="/static/ptk.jpg">
-    {% include 'nav.html' %}
+    {% include 'nav2.html' %}
     {% include 'banner.html' %}
    
     <div class="container">
@@ -46,7 +46,7 @@
                     </div>
                 {% endif %}
             {% endfor %}
-            <form action="/view_all">
+            <form action="/view_all" method="post">
                 <button type="submit" class="btn btn-outline-light" style=" margin-left: 1000px;">View All</button>
             </form>
 
