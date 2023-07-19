@@ -4,63 +4,7 @@
     <title>JobMastery - Sign Up</title>
     {% include 'layout.html' %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .divider:after,
-        .divider:before {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
-
-        .h-custom {
-            height: calc(100vh - 73px);
-        }
-
-        @media (max-width: 450px) {
-            .h-custom {
-                height: 100%;
-            }
-        }
-
-        /* Custom CSS to remove input box border and make it a line */
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="date"] {
-            border: none;
-            border-bottom: 1px solid #ced4da;
-            padding: 0;
-            width: 100%;
-            height: 2rem;
-            font-size: 1rem;
-            background-color: transparent;
-        }
-
-        /* Custom CSS for the label to act as a placeholder */
-        input[type="text"] + label,
-        input[type="email"] + label,
-        input[type="password"] + label,
-        input[type="date"] + label {
-            position: absolute;
-            pointer-events: none;
-            top: 1.5rem;
-            left: 0;
-            font-size: 1rem;
-            color: #495057;
-        }
-
-        /* Hide default arrow icon for date input */
-        input[type="date"]::-webkit-inner-spin-button,
-        input[type="date"]::-webkit-calendar-picker-indicator {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/signup_style.css"> <!-- Link the custom CSS file -->
 </head>
 <body background="/static/ptk.jpg">
 
@@ -93,39 +37,38 @@
                         </div>
                         <div class="form-outline mb-4">
                             <input type="text" id="full_name" name="full_name" class="form-control form-control-lg"
-                                placeholder="Full Name" />
+                                placeholder="Full Name" required />
 
                         </div>
                         <div class="form-outline mb-4">
                             <input type="text" id="username" name="username" class="form-control form-control-lg"
-                                placeholder="Enter Username" />
+                                placeholder="Enter Username" required />
 
                         </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <input type="email" id="email" name="email" class="form-control form-control-lg"
-                                placeholder="Enter your email address" />
+                                placeholder="Enter your email address" required />
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" id="password" name="password" class="form-control form-control-lg"
-                                placeholder="Choose a password" />
+                                placeholder="Choose a password" required />
                         </div>
 
                         <!-- Confirm Password input -->
                         <div class="form-outline mb-4">
                             <input type="password" id="confirm_password" name="confirm_password" class="form-control form-control-lg"
-                                placeholder="Confirm your password" />
+                                placeholder="Confirm your password" required />
 
                         </div>
-
 
                         <div class="d-flex justify-content-between align-items-center">
                             <!-- Checkbox -->
                             <div class="form-check mb-0">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="terms_checkbox" name="terms_checkbox" />
+                                <input class="form-check-input me-2" type="checkbox" value="" id="terms_checkbox" name="terms_checkbox" required />
                                 <label class="form-check-label" for="terms_checkbox">
                                     I agree to the terms and conditions
                                 </label>
@@ -133,7 +76,9 @@
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <input type="submit" value="Sign Up">
+                            <!-- Add CSRF token to the form for improved security -->
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
                             <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="/login"
                                     class="link-danger">Login</a></p>
                         </div>

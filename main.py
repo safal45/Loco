@@ -1,8 +1,11 @@
-from flask import Flask, render_template, request, redirect
-from database import load_job_from_db, load_jobs_from_db, add_application_to_db, add_information_to_db
+
+from flask import Flask, render_template, request, redirect, flash
+from database import load_job_from_db, load_jobs_from_db, add_application_to_db, add_information_to_db, get_iapplication_by_email
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
-app.secret_key = '7a3f7e3dd2d7bd8c19dc1d9d11c3d3d027bfd8ce0ee5f49e1aad65839de2e04f'
+app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
+csrf = CSRFProtect(app)
 
 @app.route("/")
 def hello_Loco():
@@ -22,9 +25,23 @@ def events():
 def stories():
     return render_template('stories.html')
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        # Validate login credentials
+        if validate_login(email, password):
+            # Successful login
+            flash("You have successfully logged in!", "success")
+            return redirect('/')
+        else:
+            # Incorrect login credentials
+            flash("Invalid email or password. Please try again.", "error")
+
     return render_template('login_page.html')
+
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -40,7 +57,9 @@ def signup():
             'password': password
         }
         add_information_to_db(data)
-        return redirect('/')
+        flash("You have successfully signed up!", "success")
+        return redirect('/')  # Redirect to login page after signing up
+
     return render_template('signup.html')
 
 @app.route("/about")
@@ -61,7 +80,19 @@ def apply_to_job(id):
 
     job = load_job_from_db(id)
     add_application_to_db(id, data)
+    flash("Your application has been submitted successfully!", "success")
     return render_template('application_submitted.html', application=data, job=job)
+
+def validate_login(email, password):
+    # Retrieve the information from the database based on the given email
+    information = get_iapplication_by_email(email)
+
+    # Check if the information exists and if the provided password matches the stored password
+    if information and information['password'] == password:
+        return True
+    else:
+        return False
+
 
 if __name__ == '__main__':
     app.run(debug=True)

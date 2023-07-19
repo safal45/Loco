@@ -1,3 +1,4 @@
+
 from sqlalchemy import create_engine, text
 import os
 
@@ -12,13 +13,11 @@ engine = create_engine(
     }
 )
 
-
 def load_jobs_from_db():
     with engine.connect() as conn:
         result = conn.execute(text("SELECT * FROM jobs"))
         jobs = [row._asdict() for row in result]
         return jobs
-
 
 def load_job_from_db(id):
     with engine.connect() as conn:
@@ -30,7 +29,6 @@ def load_job_from_db(id):
             return None
         else:
             return rows[0]._asdict()
-
 
 def add_application_to_db(job_id, data):
     with engine.connect() as conn:
@@ -46,7 +44,6 @@ def add_application_to_db(job_id, data):
             'resume_url': data['resume_url']
         })
 
-
 def add_information_to_db(data):
     with engine.connect() as conn:
         query = text("INSERT INTO information (full_name, username, email, password) VALUES (:full_name, :username, :email, :password)")
@@ -57,3 +54,15 @@ def add_information_to_db(data):
             'email': data['email'],
             'password': data['password']
         })
+def get_iapplication_by_email(email):
+    with engine.connect() as conn:
+        stmt = text("SELECT email, password FROM information WHERE email = :email")
+        stmt = stmt.bindparams(email=email)
+        result = conn.execute(stmt)
+        rows = result.fetchall()
+        if len(rows) == 0:
+            return None
+        else:
+            return rows[0]._asdict()
+
+
