@@ -3,4 +3,3 @@ gunicorn
 sqlalchemy
 pymysql
 flask_wtf
-flask_wtf.csrf
